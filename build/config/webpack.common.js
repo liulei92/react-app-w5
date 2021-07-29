@@ -36,8 +36,9 @@ module.exports = {
     filename: "static/js/[name].js",
     chunkFilename: "static/js/[name].[contenthash:8].js",
     path: path.resolve(PROJECT_PATH, "./dist"),
-    clean: true
+    clean: true // 打包时清除上次构建dist目录  5.20版本以后output新增特性clean
   },
+  // 编译缓存
   cache: {
     type: "filesystem", // 使用文件缓存
     // cacheDirectory 默认路径是 node_modules/.cache/webpack
@@ -153,6 +154,7 @@ module.exports = {
     ]
   },
   plugins: [
+    // 静态资源输出到dist目录
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -161,6 +163,8 @@ module.exports = {
           to: path.resolve(PROJECT_PATH, "./dist"),
           toType: "dir",
           globOptions: {
+            // dot: true,
+            // gitignore: true,
             ignore: [
               // Ignore all `txt` files
               "**/*index.html"

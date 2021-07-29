@@ -4,8 +4,9 @@
   "description": "one base template for 'react + webpack5'",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development node  ./build/server/index.js",
+    "start": "cross-env NODE_ENV=development node ./build/server/index.js",
     "build": "cross-env NODE_ENV=production webpack --config ./build/config/webpack.prod.js",
+    "analyze": "yarn build --analyze",
     "lint": "npm run lint-eslint",
     "lint-eslint": "npx eslint src --ext .js,.ts,tsx",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -77,6 +78,7 @@
     "typescript": "^4.3.5",
     "url-loader": "^4.1.1",
     "webpack": "^5.33.2",
+    "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3",
